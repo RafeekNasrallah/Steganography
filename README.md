@@ -3,12 +3,12 @@ Hide/Find message in image
 
 Wikipedia : Steganography is the practice of concealing a file, message, image, or video within another file, message, image, or video
 
-In this tiny project, i deicded ti make a GUI application, where you can hide a message in an image, and you can look it up again in the future.
+In this tiny project, i deicded to make a GUI application, where you can hide a message in an image, and you can look it up again in the future.
 
 Algorithm:
-each image is built from alot of pixels, each pixel containt 24 bits (RBG).
-the idea is to transform the message to binary, and store the whole binary message in the pixels, in order to keep the photo as similar as the oroginal,i just change the last two bitsfrom each pixel.
-The new image with the hidden message will be in the same place as your original image, with the name of lastproduct.png.
+each image is built from alot of pixels, pixels in png are 32 bits and in jpg are 24.
+in this project i will be working with png images only.
+the idea is to transform the message to binary, and store the whole binary message in the pixels, in order to keep the photo as similar as the original,i just change the last two bits from each pixel.
 
 how to run:
 1. run terminal
