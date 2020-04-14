@@ -28,10 +28,12 @@ Hiding the Message:
 
 1. choose an image with the button browse.
 2. write the message you want to hide.
-3.Click Hide! button
+3. Click Hide! button
+
 then the program will generate a new image called lastproduct.png in the same directory as your original image.
 
 Find the Message:
 1. choose an image with the button browse (usually its called lastproduct,png unless you changed its name)
-2.press Find! button
+2. press Find! button
+
 you will see the message under the button
