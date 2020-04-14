@@ -38,6 +38,8 @@ def findMsg(path):
     byte = ""
     while counter < big:#storing all the bits in a list of bytes (each 8 bits together)
         for i in range(counter, counter + 8):
+            if len(strb)==i:
+                break
             byte += strb[i]
         counter += 8
         pixels.append(byte)
@@ -75,7 +77,6 @@ def hideMsg(path):
     string = msg  # the message i wanna hide
     end = "ENDD"  # how to know where the message ends
     string = string + end
-    print(string)
     binstr = ""
     if (len(msg)*8)/2 > len(pixel_values):
         messagebox.showinfo("Too long", "Your message is too long, please choose the photo and another text.")
@@ -83,7 +84,8 @@ def hideMsg(path):
     for i in string:  # transforming my message into binary
         binstr += ('{:08b}'.format(ord(i)))
     for item in pixel_values:  # splitting my the msg binary into two bits, and storing them into the last two bits of each pixel
-        f, s, t = item
+        print(item)        
+        (f, s, t,e) = item
         bint = bin(t)[2:]  # remove 0b from beggining
         newt = ""
         for i in range(0, len(bint) - 2):
@@ -94,11 +96,10 @@ def hideMsg(path):
             newt += binstr[counter]
             counter += 1
             t = int(newt, 2)
-        newpix.append((f, s, t))  # then appending our new pixel (only t changes because t has the last 2 bits
+        newpix.append((f, s, t, e))  # then appending our new pixel (only t changes because t has the last 2 bits
     counter = 0
     im1 = Image.new('RGB', (width, height))  # creating new image with new pixels
     im1.putdata(newpix)
-    print(list(im1.getdata()))
     last = 0
     for counter, value in enumerate(path):
         if value == '/':
@@ -106,7 +107,6 @@ def hideMsg(path):
     cut = len(path)-last
     path = path[:-cut]
     path = path + "/lastproduct.png"
-    print(path)
     im1.save(path,'PNG')
 
 
@@ -118,9 +118,9 @@ def browse_button():
     folder_path.set(filename)
     name = filename
     ending = name[-4:]
-    if ending != ".png" and ending != ".jpg":
+    if ending != ".png":
         name = ""
-        messagebox.showinfo("Title", "Please insert an png or jpg image only!")
+        messagebox.showinfo("Title", "Please insert an png image only!")
 
 root = tk.Tk()
 root.geometry("500x500")
