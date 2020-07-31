@@ -26,7 +26,7 @@ How to use:
 after running the program:
 Hiding the Message:
 
-1. choose an image with the button browse.
+1. choose an image with the button browse (must be PNG).
 2. write the message you want to hide.
 3. Click Hide! button
 
