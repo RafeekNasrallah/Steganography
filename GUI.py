@@ -112,9 +112,9 @@ def browse_button():
     folder_path.set(filename)
     name = filename
     ending = name[-4:]
-    if ending != ".png" and ending != ".jpg":
+    if ending != ".png" :
         name = ""
-        messagebox.showinfo("Title", "Please insert an png or jpg image only!")
+        messagebox.showinfo("Title", "Please insert a png only!")
 
 root = tk.Tk()
 root.geometry("500x500")
